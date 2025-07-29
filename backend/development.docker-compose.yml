@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: dieton
+      POSTGRES_PASSWORD: dieton
+      POSTGRES_DB: dieton_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DATABASE_URL=postgres://dieton:dieton@db:5432/dieton_db?sslmode=disable
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
