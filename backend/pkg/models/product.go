@@ -9,10 +9,6 @@ type Product struct {
 	Carbs    float64
 }
 
-func (p *Product) CalculateCalories(proteins float64, fats float64, carbs float64) float64 {
-	return proteins*4.0 + fats*9.0 + carbs*4.0
-}
-
 func NewProduct(name string, calories float64, proteins float64, fats float64, carbs float64) *Product {
 	return &Product{
 		ID:       0,

@@ -39,5 +39,5 @@ func main() {
 	handler := router.NewRouterHandler(dbRepo)
 
 	r := router.InitRouter(handler)
-	r.Run("0.0.0.0:8000")
+	r.Run("0.0.0.0:8080")
 }

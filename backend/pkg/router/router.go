@@ -13,5 +13,6 @@ func status(c *gin.Context) {
 func InitRouter(repo *RouterHandler) *gin.Engine {
 	r := gin.Default()
 	r.GET("/", status)
+	r.GET("/product/:id", repo.GetProductInfo)
 	return r
 }
